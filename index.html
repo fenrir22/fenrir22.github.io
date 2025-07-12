@@ -1,92 +1,117 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Casa.exe</title>
-	<style>
-		@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Silkscreen&display=swap');
-		body {
-			font-family: "IBM Plex Mono", monospace;
-			background: #E9E3C6;
-			background-image: url('https://teppyslayouts.neocities.org/16/bg.png');
-		}
+  <title>Casa.exe</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Silkscreen&display=swap');
 
-		.wrapper {
-			border: 3px solid #380D41;
-			width: 615px;
-			height: 385px;
-			box-shadow: 3px 3px 0 #96A99A;
-			background-image: url('consolebg.png');
-			border-radius: 5px;
-			margin: auto;
-			margin-top: calc(50vh - 190px);
-			position: relative;
-		}
+    body {
+      font-family: "IBM Plex Mono", monospace;
+      background: #E9E3C6;
+      background-image: url('https://teppyslayouts.neocities.org/16/bg.png');
+      margin: 0;
+      padding: 0;
+    }
 
-		.screen {
-			width: 512px;
-			height: 294px;
-			background: #96A99A;
-			border: 3px solid #380D41;
-			margin: auto;
-			margin-top: 20px;
-			position: relative;
-			border-radius: 5px;
-		}
+    .wrapper {
+      border: 3px solid #380D41;
+      width: 615px;
+      height: 500px; /* aumentata per accomodare lo screen più grande */
+      box-shadow: 3px 3px 0 #96A99A;
+      background-image: url('consolebg.png');
+      border-radius: 5px;
+      margin: auto;
+      margin-top: calc(50vh - 250px);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-		iframe[name="content"] {
-			border: 0;
-			width: 100%;
-			height: 100%;
-		}
+    .screen {
+      width: 550px;  /* aumentata larghezza */
+      height: 340px; /* aumentata altezza */
+      background: #96A99A;
+      border: 3px solid #380D41;
+      margin-top: 20px;
+      position: relative;
+      border-radius: 5px;
+    }
 
-		iframe[name="musicPlayer"] {
-			display: none; /* Nasconde l'iframe con il player musicale */
-		}
-		.menu {
-			margin: auto;
-			text-align: center;
-			margin-top: 18px;
-		}
+    iframe[name="content"] {
+      border: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      display: block;
+    }
 
-		.menu a {
-			font-family: "Silkscreen", sans-serif;
-			border: 3px solid #380D41;
-			border-bottom-color: #536982;
-			color: #380D41;
-			text-decoration: none;
-			display: inline-block;
-			height: 41px;
-			font-size: 13px;
-			width: 128px;
-			margin-left: -3px;
-			border-radius: 3px;
-			line-height: 33px;
-			position: relative;
-		}
+    .gif-bottom-left {
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+      width: 40px;
+      height: auto;
+      z-index: 10;
+      background: transparent;
+    }
 
-		.menu a:hover {
-			position: relative;
-			top: 4px;
-		}
-	</style>
+    iframe[name="musicPlayer"] {
+      display: block;
+      width: 512px;
+      height: 50px;
+      border: none;
+      margin: 10px auto 0 auto;
+      border-radius: 5px;
+      background: #96A99A;
+    }
+
+    .menu {
+      margin: auto;
+      text-align: center;
+      margin-top: 18px;
+      white-space: nowrap;
+      font-size: 0;
+    }
+
+    .menu a {
+      font-family: "Silkscreen", sans-serif;
+      border: 3px solid #380D41;
+      border-bottom-color: #536982;
+      color: #380D41;
+      text-decoration: none;
+      display: inline-block;
+      height: 41px;
+      font-size: 13px;
+      width: 118px;
+      margin-left: -3px;
+      border-radius: 3px;
+      line-height: 33px;
+      position: relative;
+    }
+
+    .menu a:hover {
+      position: relative;
+      top: 4px;
+    }
+  </style>
 </head>
 <body>
 
-	<div class="wrapper">
-		<div class="screen">
-			<iframe name="content" src="home.html"></iframe>
-		</div>
+  <div class="wrapper">
 
-		<!-- Iframe nascosto che carica il player musicale e non si ricarica -->
-		<iframe name="musicPlayer" src="player.html"></iframe>
+    <div class="screen">
+      <iframe name="content" src="home.html"></iframe>
+      <img class="gif-bottom-left" src="pipi.gif" alt="Gif trasparente" />
+    </div>
 
-		<div class="menu">
-			<a href="home.html" target="content">Casa</a>
-			<a href="blog.html" target="content">Musica</a>
-			<a href="about.html" target="content">Galleria</a>
-			<a href="links.html" target="content">Social</a>
-		</div>
-	</div>
+    <iframe name="musicPlayer" src="player.html"></iframe>
+
+    <div class="menu">
+      <a href="home.html" target="content">Casa</a>
+      <a href="links.html" target="content">Social</a>
+    </div>
+  </div>
 
 </body>
 </html>
